@@ -42,6 +42,22 @@ jobs:
       - name: Build and start backend
         run: docker compose up -d llm-multiroute
 
+      - name: Install and start Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve &
+          # Wait for Ollama service to boot up
+          sleep 5
+
+      - name: Pull Ollama judge model
+        run: |
+          # Replace 'llama3.2' or 'qwen2.5:3b' with your desired model
+          ollama pull llama3.2
+
+      - name: Configure DeepEval to use Ollama
+        run: |
+          deepeval set-ollama --model=llama3.2
+          
       - name: Wait for backend to be ready
         run: |
           echo "Waiting for backend to be ready..."

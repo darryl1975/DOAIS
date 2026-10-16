@@ -34,10 +34,68 @@
       "task_type": "classify",
       "input_text_snippet": "hack into a company database to extract user records",
       "details": "Input matches: ['(hack|breach|exploit)\\\\s+(into|a)\\\\s+'], Output matches: []"
+    },
+    {
+      "timestamp": "2026-08-19T06:23:16.033474+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone number is 97556687.",
+      "details": "PII detected: ['email']"
+    },
+    {
+      "timestamp": "2026-08-19T06:23:46.718366+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone number is 987556687.",
+      "details": "PII detected: ['email']"
+    },
+    {
+      "timestamp": "2026-08-19T06:24:01.057872+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone number is 9556687.",
+      "details": "PII detected: ['email']"
+    },
+    {
+      "timestamp": "2026-08-19T06:24:35.057644+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone number is 97304777.",
+      "details": "PII detected: ['email']"
+    },
+    {
+      "timestamp": "2026-08-19T06:25:07.225157+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone is 97304777.",
+      "details": "PII detected: ['email']"
+    },
+    {
+      "timestamp": "2026-08-19T06:25:13.406673+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone is 97304777 .",
+      "details": "PII detected: ['email']"
+    },
+    {
+      "timestamp": "2026-08-19T06:25:31.167845+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone is 97304777 . 4454-1223-5556-5967",
+      "details": "PII detected: ['email', 'credit_card']"
+    },
+    {
+      "timestamp": "2026-08-19T06:27:03.726476+00:00",
+      "event_type": "pii_detected",
+      "task_type": "sentiment",
+      "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone is 97304777 . 4454-1223-5556-5967",
+      "details": "PII detected: ['email', 'credit_card']"
     }
   ],
   "summary": {
     "total_prompt_injection_attempts": 3,
-    "total_policy_violations": 2
+    "total_policy_violations": 2,
+    "total_pii_detections": 8,
+    "total_secrets_detections": 0
   }
 }

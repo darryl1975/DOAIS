@@ -1487,12 +1487,18 @@
       "task_type": "classify",
       "model": "gemma4:31b",
       "latency_seconds": 2.2823
+    },
+    {
+      "timestamp": "2026-08-19T06:37:42.448644+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.1068
     }
   ],
   "summary": {
     "p50_latency": 0.0001,
-    "p95_latency": 2.1115,
-    "avg_latency": 0.247,
-    "total_requests": 248
+    "p95_latency": 2.1111,
+    "avg_latency": 0.2545,
+    "total_requests": 249
   }
 }

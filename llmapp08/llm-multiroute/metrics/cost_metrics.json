@@ -1983,11 +1983,19 @@
       "input_tokens": 97,
       "output_tokens": 39,
       "total_tokens": 136
+    },
+    {
+      "timestamp": "2026-08-19T06:37:42.458727+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 105,
+      "output_tokens": 69,
+      "total_tokens": 174
     }
   ],
   "summary": {
-    "total_input_tokens": 3478,
-    "total_output_tokens": 1852,
-    "total_requests": 248
+    "total_input_tokens": 3583,
+    "total_output_tokens": 1921,
+    "total_requests": 249
   }
 }

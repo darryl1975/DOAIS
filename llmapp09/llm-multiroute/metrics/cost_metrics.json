@@ -2471,11 +2471,99 @@
       "input_tokens": 406,
       "output_tokens": 419,
       "total_tokens": 825
+    },
+    {
+      "timestamp": "2026-08-19T01:55:58.199284+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "input_tokens": 86,
+      "output_tokens": 33,
+      "total_tokens": 119
+    },
+    {
+      "timestamp": "2026-08-19T05:06:23.034105+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "input_tokens": 124,
+      "output_tokens": 45,
+      "total_tokens": 169
+    },
+    {
+      "timestamp": "2026-08-19T05:06:42.258734+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "input_tokens": 422,
+      "output_tokens": 541,
+      "total_tokens": 963
+    },
+    {
+      "timestamp": "2026-08-19T06:23:18.159521+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 94,
+      "output_tokens": 79,
+      "total_tokens": 173
+    },
+    {
+      "timestamp": "2026-08-19T06:23:48.701741+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 95,
+      "output_tokens": 80,
+      "total_tokens": 175
+    },
+    {
+      "timestamp": "2026-08-19T06:24:02.924603+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 93,
+      "output_tokens": 76,
+      "total_tokens": 169
+    },
+    {
+      "timestamp": "2026-08-19T06:24:37.129172+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 94,
+      "output_tokens": 84,
+      "total_tokens": 178
+    },
+    {
+      "timestamp": "2026-08-19T06:25:09.237066+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 93,
+      "output_tokens": 77,
+      "total_tokens": 170
+    },
+    {
+      "timestamp": "2026-08-19T06:25:15.580320+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 93,
+      "output_tokens": 77,
+      "total_tokens": 170
+    },
+    {
+      "timestamp": "2026-08-19T06:25:33.026093+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 104,
+      "output_tokens": 78,
+      "total_tokens": 182
+    },
+    {
+      "timestamp": "2026-08-19T06:27:09.033774+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "input_tokens": 408,
+      "output_tokens": 417,
+      "total_tokens": 825
     }
   ],
   "summary": {
-    "total_input_tokens": 4580,
-    "total_output_tokens": 3527,
-    "total_requests": 309
+    "total_input_tokens": 6286,
+    "total_output_tokens": 5114,
+    "total_requests": 320
   }
 }
