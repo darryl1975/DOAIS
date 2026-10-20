@@ -1,0 +1,1 @@
+{"USE_LOCAL_MODEL": "YES", "LOCAL_MODEL_BASE_URL": "http://local:11434/", "OLLAMA_MODEL_NAME": "glm-5.2:cloud"}

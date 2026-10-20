@@ -13,7 +13,7 @@ from deepeval.metrics import GEval
 from deepeval.dataset import EvaluationDataset
 
 from api_client import summarize_text
-from conftest import json_schema_metric, output_correctness_metric, answer_relevancy_metric
+from conftest import JUDGE_MODEL, json_schema_metric, output_correctness_metric, answer_relevancy_metric
 
 
 # ---------------------------------------------------------------------------
@@ -171,6 +171,7 @@ summarize_correctness_metric = GEval(
         LLMTestCaseParams.EXPECTED_OUTPUT,
     ],
     threshold=0.7,
+    model=JUDGE_MODEL,
 )
 
 summarize_conciseness_metric = GEval(
@@ -186,6 +187,7 @@ summarize_conciseness_metric = GEval(
         LLMTestCaseParams.ACTUAL_OUTPUT,
     ],
     threshold=0.7,
+    model=JUDGE_MODEL,
 )
 
 summarize_faithfulness_metric = GEval(
@@ -201,6 +203,7 @@ summarize_faithfulness_metric = GEval(
         LLMTestCaseParams.ACTUAL_OUTPUT,
     ],
     threshold=0.8,
+    model=JUDGE_MODEL,
 )
 
 summarize_relevancy_metric = answer_relevancy_metric()
