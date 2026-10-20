@@ -1991,11 +1991,19 @@
       "input_tokens": 105,
       "output_tokens": 69,
       "total_tokens": 174
+    },
+    {
+      "timestamp": "2026-10-16T07:17:50.127775+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 96,
+      "output_tokens": 79,
+      "total_tokens": 175
     }
   ],
   "summary": {
-    "total_input_tokens": 3583,
-    "total_output_tokens": 1921,
-    "total_requests": 249
+    "total_input_tokens": 3679,
+    "total_output_tokens": 2000,
+    "total_requests": 250
   }
 }

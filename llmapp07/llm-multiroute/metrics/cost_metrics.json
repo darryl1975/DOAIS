@@ -87,11 +87,43 @@
       "input_tokens": 182,
       "output_tokens": 46,
       "total_tokens": 228
+    },
+    {
+      "timestamp": "2026-10-16T06:35:41.761121+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "input_tokens": 124,
+      "output_tokens": 37,
+      "total_tokens": 161
+    },
+    {
+      "timestamp": "2026-10-16T06:35:43.009064+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "input_tokens": 479,
+      "output_tokens": 94,
+      "total_tokens": 573
+    },
+    {
+      "timestamp": "2026-10-16T06:35:44.377975+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "input_tokens": 115,
+      "output_tokens": 106,
+      "total_tokens": 221
+    },
+    {
+      "timestamp": "2026-10-16T06:35:48.760317+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "input_tokens": 422,
+      "output_tokens": 562,
+      "total_tokens": 984
     }
   ],
   "summary": {
-    "total_input_tokens": 1215,
-    "total_output_tokens": 542,
-    "total_requests": 11
+    "total_input_tokens": 2355,
+    "total_output_tokens": 1341,
+    "total_requests": 15
   }
 }

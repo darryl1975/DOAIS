@@ -65,12 +65,36 @@
       "task_type": "intent",
       "model": "gemma3:12b",
       "latency_seconds": 2.7891
+    },
+    {
+      "timestamp": "2026-10-16T06:35:41.759764+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "latency_seconds": 0.7029
+    },
+    {
+      "timestamp": "2026-10-16T06:35:43.008485+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 1.95
+    },
+    {
+      "timestamp": "2026-10-16T06:35:44.376512+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 3.3187
+    },
+    {
+      "timestamp": "2026-10-16T06:35:48.759198+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "latency_seconds": 7.6994
     }
   ],
   "summary": {
-    "p50_latency": 1.7555,
-    "p95_latency": 3.0356,
-    "avg_latency": 1.8114,
-    "total_requests": 11
+    "p50_latency": 1.8126,
+    "p95_latency": 8.5755,
+    "avg_latency": 2.2398,
+    "total_requests": 15
   }
 }

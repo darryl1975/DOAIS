@@ -104,12 +104,19 @@
       "task_type": "summarize",
       "input_text_snippet": "Darryl email address is darrylng@nus.edu.sg. His telephone is 97304777 . 4454-1223-5556-5967",
       "details": "PII detected: ['email', 'telephone', 'credit_card']"
+    },
+    {
+      "timestamp": "2026-10-16T07:17:47.536529+00:00",
+      "event_type": "pii_detected",
+      "task_type": "summarize",
+      "input_text_snippet": "My name is Darryl. Email darrylng@nus.edu.sg. My phone number is 96843547.",
+      "details": "PII detected: ['email', 'telephone']"
     }
   ],
   "summary": {
     "total_prompt_injection_attempts": 6,
     "total_policy_violations": 2,
-    "total_pii_detections": 7,
+    "total_pii_detections": 8,
     "total_secrets_detections": 0
   }
 }

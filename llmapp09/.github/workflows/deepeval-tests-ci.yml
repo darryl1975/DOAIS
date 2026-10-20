@@ -56,7 +56,7 @@ jobs:
 
       - name: Configure DeepEval to use Ollama
         run: |
-          deepeval set-ollama --model=llama3.2
+          deepeval set-ollama --model=llama3.2 --base-url="http://localhost:11434"
           
       - name: Wait for backend to be ready
         run: |

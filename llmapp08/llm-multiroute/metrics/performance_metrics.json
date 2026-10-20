@@ -1493,12 +1493,18 @@
       "task_type": "summarize",
       "model": "mistral-large-3:675b",
       "latency_seconds": 2.1068
+    },
+    {
+      "timestamp": "2026-10-16T07:17:50.122220+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.5815
     }
   ],
   "summary": {
     "p50_latency": 0.0001,
-    "p95_latency": 2.1111,
-    "avg_latency": 0.2545,
-    "total_requests": 249
+    "p95_latency": 2.1408,
+    "avg_latency": 0.2638,
+    "total_requests": 250
   }
 }
