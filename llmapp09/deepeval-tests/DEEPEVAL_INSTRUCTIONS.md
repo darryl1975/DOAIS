@@ -50,8 +50,12 @@
   pip install -r requirements.txt
 
   # 2. Configure the judge LLM (LLM-as-a-judge). Defaults to a local Ollama model.
-  ollama pull llama3.2                                  # or any local model
-  export DEEPEVAL_JUDGE_MODEL="llama3.2"                # default: llama3.2
+  # Use a ~7B+ model: 1-3B models (llama3.2:1b, gemma2:2b, deepseek-r1:1.5b)
+  # give arbitrary scores and fail correct outputs.
+  ollama pull qwen2.5:7b
+  export DEEPEVAL_JUDGE_MODEL="qwen2.5:7b"              # default: qwen2.5:7b
+  # Faster alternative routed through the local Ollama daemon to Ollama Cloud:
+  # export DEEPEVAL_JUDGE_MODEL="glm-5.2:cloud"
   export DEEPEVAL_JUDGE_BASE_URL="http://localhost:11434"  # default
   # Slow local models: per-call timeout defaults to 600s in conftest.py
   # export DEEPEVAL_PER_ATTEMPT_TIMEOUT_SECONDS_OVERRIDE=900

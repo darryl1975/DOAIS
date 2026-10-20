@@ -2837,12 +2837,150 @@
       "task_type": "sentiment",
       "model": "glm-5.2",
       "latency_seconds": 2.2329
+    },
+    {
+      "timestamp": "2026-10-20T06:01:55.758128+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "latency_seconds": 3.4458
+    },
+    {
+      "timestamp": "2026-10-20T06:01:56.444824+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "latency_seconds": 0.6449
+    },
+    {
+      "timestamp": "2026-10-20T06:01:57.119160+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "latency_seconds": 0.6505
+    },
+    {
+      "timestamp": "2026-10-20T06:01:58.089865+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "latency_seconds": 0.9216
+    },
+    {
+      "timestamp": "2026-10-20T06:01:59.405209+00:00",
+      "task_type": "classify",
+      "model": "gemma4:31b",
+      "latency_seconds": 1.291
+    },
+    {
+      "timestamp": "2026-10-20T06:02:00.564003+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 1.1102
+    },
+    {
+      "timestamp": "2026-10-20T06:02:04.209704+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 3.5738
+    },
+    {
+      "timestamp": "2026-10-20T06:02:07.744258+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 3.4899
+    },
+    {
+      "timestamp": "2026-10-20T06:02:16.234765+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 8.4653
+    },
+    {
+      "timestamp": "2026-10-20T06:02:19.639299+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 3.3542
+    },
+    {
+      "timestamp": "2026-10-20T06:02:26.634807+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 6.9655
+    },
+    {
+      "timestamp": "2026-10-20T06:02:28.652584+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 1.9659
+    },
+    {
+      "timestamp": "2026-10-20T06:02:30.527628+00:00",
+      "task_type": "intent",
+      "model": "minimax-m3",
+      "latency_seconds": 1.8372
+    },
+    {
+      "timestamp": "2026-10-20T06:02:33.394630+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.8048
+    },
+    {
+      "timestamp": "2026-10-20T06:02:36.102811+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.6251
+    },
+    {
+      "timestamp": "2026-10-20T06:02:38.632295+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.4799
+    },
+    {
+      "timestamp": "2026-10-20T06:02:40.780090+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.1082
+    },
+    {
+      "timestamp": "2026-10-20T06:02:43.022272+00:00",
+      "task_type": "summarize",
+      "model": "mistral-large-3:675b",
+      "latency_seconds": 2.1906
+    },
+    {
+      "timestamp": "2026-10-20T06:02:51.969394+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "latency_seconds": 8.8875
+    },
+    {
+      "timestamp": "2026-10-20T06:02:57.068471+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "latency_seconds": 5.0391
+    },
+    {
+      "timestamp": "2026-10-20T06:03:02.378912+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "latency_seconds": 5.2755
+    },
+    {
+      "timestamp": "2026-10-20T06:03:05.660391+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "latency_seconds": 3.2374
+    },
+    {
+      "timestamp": "2026-10-20T06:03:07.328471+00:00",
+      "task_type": "sentiment",
+      "model": "glm-5.2",
+      "latency_seconds": 1.625
     }
   ],
   "summary": {
     "p50_latency": 0.0002,
-    "p95_latency": 4.9352,
-    "avg_latency": 1.12,
-    "total_requests": 473
+    "p95_latency": 5.1426,
+    "avg_latency": 1.2172,
+    "total_requests": 496
   }
 }

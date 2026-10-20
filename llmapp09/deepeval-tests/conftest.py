@@ -19,20 +19,22 @@ from deepeval.test_case import LLMTestCaseParams
 # ---------------------------------------------------------------------------
 # By default the GEval metrics are scored by a local Ollama model. Override via:
 #   DEEPEVAL_JUDGE_PROVIDER  "ollama" (default) or "openai" (uses OPENAI_API_KEY)
-#   DEEPEVAL_JUDGE_MODEL     Ollama model name (default: llama3.2)
+#   DEEPEVAL_JUDGE_MODEL     Ollama model name (default: qwen2.5:7b)
 #   DEEPEVAL_JUDGE_BASE_URL  Ollama server URL (default: http://localhost:11434)
 # Distinct names are used so they don't clash with OLLAMA_BASE_URL, which points
 # the backend at Ollama Cloud.
-
+# Use a model of ~7B+ parameters: 1-3B models (llama3.2:1b, gemma2:2b,
+# deepseek-r1:1.5b) can't follow GEval's scoring prompt and return arbitrary
+# scores, e.g. failing valid JSON as "labels is not an array of strings".
 def get_judge_model():
     """Returns the judge model passed to every metric (None = deepeval default)."""
     provider = os.getenv("DEEPEVAL_JUDGE_PROVIDER", "ollama").lower()
     if provider == "openai":
         return None
     return OllamaModel(
-        model=os.getenv("DEEPEVAL_JUDGE_MODEL", "llama3.2:1b"),
+        model=os.getenv("DEEPEVAL_JUDGE_MODEL", "glm-5.2:cloud"),
         base_url=os.getenv("DEEPEVAL_JUDGE_BASE_URL", "http://localhost:11434"),
-        temperature=0,
+        temperature=0.7,
     )
 
 

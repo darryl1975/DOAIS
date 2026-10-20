@@ -21,7 +21,7 @@ env:
   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
   # Local Ollama judge model for LLM-as-a-judge metrics (see deepeval-tests/conftest.py)
   DEEPEVAL_JUDGE_PROVIDER: ollama
-  DEEPEVAL_JUDGE_MODEL: llama3.2:1b
+  DEEPEVAL_JUDGE_MODEL: glm-5.2:cloud
   DEEPEVAL_JUDGE_BASE_URL: http://localhost:11434
 
 jobs:
