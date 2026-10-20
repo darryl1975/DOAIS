@@ -8,9 +8,12 @@ import os
 # before deepeval loads its settings. Override by exporting the variable.
 os.environ.setdefault("DEEPEVAL_PER_ATTEMPT_TIMEOUT_SECONDS_OVERRIDE", "600")
 
+import re
+
 import pytest
 from deepeval.metrics import GEval
 from deepeval.models import OllamaModel
+from deepeval.models.llms.ollama_model import retry_ollama
 from deepeval.test_case import LLMTestCaseParams
 
 
@@ -26,12 +29,51 @@ from deepeval.test_case import LLMTestCaseParams
 # Use a model of ~7B+ parameters: 1-3B models (llama3.2:1b, gemma2:2b,
 # deepseek-r1:1.5b) can't follow GEval's scoring prompt and return arbitrary
 # scores, e.g. failing valid JSON as "labels is not an array of strings".
+#
+# For CI (no signed-in Ollama daemon), call Ollama Cloud directly instead of a
+# ":cloud" model through localhost, which returns 401 Unauthorized:
+#   DEEPEVAL_JUDGE_BASE_URL=https://ollama.com  DEEPEVAL_JUDGE_MODEL=glm-5.2
+# The ollama client sends OLLAMA_API_KEY as the Bearer token automatically.
+
+_JSON_FENCE = re.compile(r"^\s*```(?:json)?\s*|\s*```\s*$")
+
+
+class JudgeOllamaModel(OllamaModel):
+    """OllamaModel that tolerates ```json fenced replies, which Ollama Cloud
+    models sometimes return despite the structured-output `format` schema."""
+
+    def _chat_kwargs(self, prompt, schema):
+        return dict(
+            model=self.name,
+            messages=[{"role": "user", "content": prompt}],
+            format=schema.model_json_schema() if schema else None,
+            options={"temperature": self.temperature, **self.generation_kwargs},
+        )
+
+    @staticmethod
+    def _parse(content, schema):
+        if schema is None:
+            return content
+        return schema.model_validate_json(_JSON_FENCE.sub("", content))
+
+    @retry_ollama
+    def generate(self, prompt, schema=None):
+        response = self.load_model().chat(**self._chat_kwargs(prompt, schema))
+        return self._parse(response.message.content, schema), 0
+
+    @retry_ollama
+    async def a_generate(self, prompt, schema=None):
+        client = self.load_model(async_mode=True)
+        response = await client.chat(**self._chat_kwargs(prompt, schema))
+        return self._parse(response.message.content, schema), 0
+
+
 def get_judge_model():
     """Returns the judge model passed to every metric (None = deepeval default)."""
     provider = os.getenv("DEEPEVAL_JUDGE_PROVIDER", "ollama").lower()
     if provider == "openai":
         return None
-    return OllamaModel(
+    return JudgeOllamaModel(
         model=os.getenv("DEEPEVAL_JUDGE_MODEL", "glm-5.2:cloud"),
         base_url=os.getenv("DEEPEVAL_JUDGE_BASE_URL", "http://localhost:11434"),
         temperature=0.7,
