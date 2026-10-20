@@ -49,8 +49,16 @@
   # 1. Install dependencies
   pip install -r requirements.txt
 
-  # 2. Set OpenAI API key (used as the evaluation judge LLM)
-  export OPENAI_API_KEY="your-openai-api-key"
+  # 2. Configure the judge LLM (LLM-as-a-judge). Defaults to a local Ollama model.
+  ollama pull llama3.2                                  # or any local model
+  export DEEPEVAL_JUDGE_MODEL="llama3.2"                # default: llama3.2
+  export DEEPEVAL_JUDGE_BASE_URL="http://localhost:11434"  # default
+  # Slow local models: per-call timeout defaults to 600s in conftest.py
+  # export DEEPEVAL_PER_ATTEMPT_TIMEOUT_SECONDS_OVERRIDE=900
+
+  # To use OpenAI as the judge instead:
+  # export DEEPEVAL_JUDGE_PROVIDER=openai
+  # export OPENAI_API_KEY="your-openai-api-key"
 
   # 3. Make sure the Spring Boot app is running on localhost:8080
 
@@ -68,4 +76,4 @@
   # Verbose output
   deepeval test run test_classify.py -v
 
-  The tests call each endpoint live on localhost:8080, then use OpenAI (as the judge LLM) to evaluate whether the responses are correct, relevant, properly structured, and free of hallucinations.
+  The tests call each endpoint live on localhost:8080, then use the judge LLM (local Ollama by default, configured in conftest.py) to evaluate whether the responses are correct, relevant, properly structured, and free of hallucinations.

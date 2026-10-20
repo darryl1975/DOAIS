@@ -19,6 +19,10 @@ env:
   OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  # Local Ollama judge model for LLM-as-a-judge metrics (see deepeval-tests/conftest.py)
+  DEEPEVAL_JUDGE_PROVIDER: ollama
+  DEEPEVAL_JUDGE_MODEL: llama3.2:1b
+  DEEPEVAL_JUDGE_BASE_URL: http://localhost:11434
 
 jobs:
   deepeval:
@@ -51,13 +55,8 @@ jobs:
 
       - name: Pull Ollama judge model
         run: |
-          # Replace 'llama3.2' or 'qwen2.5:3b' with your desired model
-          ollama pull llama3.2
+          ollama pull "$DEEPEVAL_JUDGE_MODEL"
 
-      - name: Configure DeepEval to use Ollama
-        run: |
-          deepeval set-ollama --model=llama3.2 --base-url="http://localhost:11434"
-          
       - name: Wait for backend to be ready
         run: |
           echo "Waiting for backend to be ready..."

@@ -1,3 +1,0 @@
-[console_scripts]
-guardrails=guardrails.cli:cli
-

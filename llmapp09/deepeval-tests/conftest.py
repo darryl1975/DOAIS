@@ -2,9 +2,41 @@
 Shared fixtures and configuration for deepeval LLM evaluation tests.
 """
 
+import os
+
+# Local judge models are slow; raise deepeval's per-call timeout (~90s default)
+# before deepeval loads its settings. Override by exporting the variable.
+os.environ.setdefault("DEEPEVAL_PER_ATTEMPT_TIMEOUT_SECONDS_OVERRIDE", "600")
+
 import pytest
 from deepeval.metrics import GEval
+from deepeval.models import OllamaModel
 from deepeval.test_case import LLMTestCaseParams
+
+
+# ---------------------------------------------------------------------------
+# Judge model (LLM-as-a-judge) configuration
+# ---------------------------------------------------------------------------
+# By default the GEval metrics are scored by a local Ollama model. Override via:
+#   DEEPEVAL_JUDGE_PROVIDER  "ollama" (default) or "openai" (uses OPENAI_API_KEY)
+#   DEEPEVAL_JUDGE_MODEL     Ollama model name (default: llama3.2)
+#   DEEPEVAL_JUDGE_BASE_URL  Ollama server URL (default: http://localhost:11434)
+# Distinct names are used so they don't clash with OLLAMA_BASE_URL, which points
+# the backend at Ollama Cloud.
+
+def get_judge_model():
+    """Returns the judge model passed to every metric (None = deepeval default)."""
+    provider = os.getenv("DEEPEVAL_JUDGE_PROVIDER", "ollama").lower()
+    if provider == "openai":
+        return None
+    return OllamaModel(
+        model=os.getenv("DEEPEVAL_JUDGE_MODEL", "llama3.2:1b"),
+        base_url=os.getenv("DEEPEVAL_JUDGE_BASE_URL", "http://localhost:11434"),
+        temperature=0,
+    )
+
+
+JUDGE_MODEL = get_judge_model()
 
 
 # ---------------------------------------------------------------------------
@@ -25,6 +57,7 @@ def json_schema_metric(schema_description: str):
             LLMTestCaseParams.ACTUAL_OUTPUT,
         ],
         threshold=0.5,
+        model=JUDGE_MODEL,
     )
 
 
@@ -42,6 +75,7 @@ def output_correctness_metric():
             LLMTestCaseParams.ACTUAL_OUTPUT,
         ],
         threshold=0.5,
+        model=JUDGE_MODEL,
     )
 
 
@@ -64,4 +98,5 @@ def answer_relevancy_metric():
             LLMTestCaseParams.ACTUAL_OUTPUT,
         ],
         threshold=0.5,
+        model=JUDGE_MODEL,
     )
